@@ -28,7 +28,7 @@ $(document).ready( function () {
         
         if ($('#map-zoom-in').hasClass("active-zoom-button")) { 
           $('#map-zoom-in').click();
-        };
+        }
 
         $('#venue-container').empty();
 
@@ -37,7 +37,7 @@ $(document).ready( function () {
         });
 
       });
-    };
+    }
 
     function refreshVenuesWith(url) {
      $('#venue-container').children().slideUp(200, function() {
@@ -45,7 +45,7 @@ $(document).ready( function () {
       });
 
       return displayVenuesFrom(url);
-    };
+    }
 
     function appendVenueToContainer(rawVenue) {
       var venue = new VenueModel(rawVenue);
@@ -59,7 +59,7 @@ $(document).ready( function () {
       addVenueMarker(venue);
 
       return deferred.promise;
-    };
+    }
 
     function addVenueMarker(venue) {
       var marker = mainMap.createMarker({
@@ -73,16 +73,15 @@ $(document).ready( function () {
       });
       venueMarkers.push(marker);
       mainMap.addMarker(marker);
-    };
+    }
 
     function clearMarkers(venueMarkers) {
       venueMarkers.forEach( function(venueMarker) {
         venueMarker.setMap(null);
       });
       venueMarkers = [];
-    };
+    }
 
+  }
 
-
-  };
 });

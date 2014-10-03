@@ -7,7 +7,9 @@ $(document).ready( function () {
 		var midpointId = $('#midpoint_id').text();
 		var addressIcon = '/images/red-person.png';
         var metresToDegConverter = 100000; 
-		$.get('/midpoints/' + midpointId +'/json_data', function(data) {
+		
+        $.get('/midpoints/' + midpointId +'/json_data', function(data) {
+            
             midpoint = new MidpointModel(data)
 			mainMap = new GMaps ({
 				styles: styleArray,
@@ -31,19 +33,17 @@ $(document).ready( function () {
                 });
 
 			});
+
 			mainMap.fitLatLngBounds(midpoint.zoomOutBounds());
             midpoint.drawCircle(mainMap);
 
-            
-
-
 			// Zooms the view in to the midpoint radius
-
             $('#map-zoom-in').on( 'click', function () {
                 mainMap.fitLatLngBounds(midpoint.zoomInBounds())
                 $(this).addClass("active-zoom-button");
                 $(this).siblings().removeClass("active-zoom-button");
             })
+
             // And back out again
             $('#map-zoom-out').on( 'click', function () {
                 mainMap.fitLatLngBounds(midpoint.zoomOutBounds())
@@ -51,9 +51,7 @@ $(document).ready( function () {
                 $(this).siblings().removeClass("active-zoom-button");
             })
 
-
         });
-
 
         var styleArray = [
             {

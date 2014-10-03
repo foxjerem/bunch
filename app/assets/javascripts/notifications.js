@@ -8,11 +8,13 @@ $(document).ready(function () {
 		parentVenue = $(this).closest('.venue-card');
   	$('#meetup_url').val(parentVenue.find('.venue-detail-url').prop('href'));
   	$('#meetup_venue').val(parentVenue.find('.venue-name').text());
+
 	});
 	
 	
 	if( $('#datetimepicker1').length ) {
-		$(function () {
+		
+    $(function () {
 	    $('#datetimepicker1').datetimepicker();
 		});
 
@@ -22,6 +24,6 @@ $(document).ready(function () {
     	inputDelimiters: [',', ';', ' ']
 		});
 
-	};
+	}
 
 });
